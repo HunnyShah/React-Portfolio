@@ -8,4 +8,6 @@ npm start.
 
 This project data is fetched using localhost api .\
 The api and data comes from laravel backend project.\
-Please clone that repo from here : https://github.com/2022-Summer-HTTP-5211-RNA/laravel-cms-project-team_6.\
+Clone repo from here : https://github.com/2022-Summer-HTTP-5211-RNA/laravel-cms-project-team_6.\
+Download databse file from current repositary.\
+Import in MyPHP admin.\
