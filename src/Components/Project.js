@@ -6,10 +6,7 @@ class Project extends React.Component {
   {
     super(props);
     this.state = {
-      title: [],
-      slug: [],
-      content: [],
-      image: []
+      projects:[]
     };
   }
 
@@ -22,10 +19,7 @@ class Project extends React.Component {
         
       this.setState({
         
-        title:res.data[0].title,
-        content:res.data[0].content,
-        slug: res.data[0].slug,
-        image: res.data[0].image
+        projects:res.data,
       });
     });
   }
@@ -33,17 +27,19 @@ class Project extends React.Component {
   render() {
     //const statereveal = this.state.statereveal;
     
-    const { title } = this.state;
-    const { content } = this.state;
-    const { slug} = this.state;
-    const {image} = this.state;
+    var {projects} = this.state;
 
     return(
-      <div>
-        <h3>{title}</h3>
-        <h5>{slug}</h5>
-        <h5>{content}</h5>
-        <div>{image}</div>
+      <div id="project">
+        {projects && projects.map((project)=>{
+          return(
+            <div key={project.id} className="edu_flex">
+              <h2>{project.title}</h2>
+              <h5>{project.slug}</h5>
+              <p>{project.content}</p>
+            </div>
+          ) 
+        })}
       </div>
     )
   }

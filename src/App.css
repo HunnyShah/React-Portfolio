@@ -1,3 +1,23 @@
+*
+{
+  background-color:lavender;
+}
+h1{
+  text-align: center;
+}
+img
+{
+  height: 500px;
+  width: 330px;
+}
+ul
+{
+  display: inline-flex;
+  list-style-type: none;
+}
+li{
+  padding: 2em;
+}
 .App {
   text-align: center;
 }
@@ -26,6 +46,72 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.about
+{
+  height: 700px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1em;
+}
+.connect
+{
+  height: 700px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1em;
+}
+.con_flex
+{
+  display: inline-flex;
+}
+.con_img
+{
+  width: 40px;
+  height: 40px;
+  padding: 0.2em;
+}
+.education
+{
+  height: 700px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1em;
+}
+.edu_flex
+{
+  padding: 4em;
+}
+.experience
+{
+  height: 700px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1em;
+}
+.project
+{
+  height: 700px;
+  max-width: 1200px;
+  padding: 1em;
+}
+.skill
+{
+  height: 700px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1em;
+}
+.skill_flex
+{
+  display: inline-flex;
+}
+.skill_img
+{
+  width: 100px;
+  height: 100px;
+  padding: 0.2em;
 }
 
 @keyframes App-logo-spin {

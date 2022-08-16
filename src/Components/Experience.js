@@ -8,12 +8,7 @@ class Experience extends React.Component {
     {
       super(props);
       this.state = {
-        image: [],
-        company_name: [],
-        position: [],
-        job_role: [],
-        start_date: [],
-        end_date: []
+        experiences:[]
       };
     }
   
@@ -26,34 +21,29 @@ class Experience extends React.Component {
           // console.log(res.data[0].);
           
         this.setState({
-          image:res.data[0].image,
-          company_name:res.data[0].company_name,
-          position: res.data[0].position,
-          job_role: res.data[0].job_role,
-          start_date: res.data[0].start_date,
-          end_date:res.data[0].end_date
+          experiences:res.data,
         });
       });
     }
   
     render() {
       // Assigning state
-      const { image } = this.state;
-      const { company_name } = this.state;
-      const { position} = this.state;
-      const {job_role} = this.state;
-      const {start_date} = this.state;
-      const {end_date} = this.state;
+      var {experiences} = this.state;
   
       return(
-        // Displaying the fetched data to web page
-        <div>
-          <h3>{position}</h3>
-          <h5>{image}{company_name}</h5>
-          <h5>{job_role}</h5>
-          <h6>{start_date}</h6>
-          <h6>{end_date}</h6>
-        </div>
+        <div id="experience">
+          {experiences && experiences.map((experience)=>{
+            return(
+              <div key={experience.id} className="edu_flex">
+                <h2>{experience.position}</h2>
+                <h5>{experience.company_name}</h5>
+                <h5>{experience.job_role}</h5>
+                <p>{experience.start_date}</p>
+                <p>{experience.end_date}</p>
+              </div>
+            ) 
+          })}
+      </div>
       )
     }
   }

@@ -8,9 +8,7 @@ class Connect extends React.Component {
     {
       super(props);
       this.state = {
-        title: [],
-        link: [],
-        image: []
+        connects:[]
       };
     }
   
@@ -23,23 +21,23 @@ class Connect extends React.Component {
           // console.log(res.data[0].);
           
         this.setState({
-          title:res.data[0].title,
-          link:res.data[0].link,
-          image: res.data[0].image
+          connects:res.data,
         });
       });
     }
   
     render() {
       // Assigning state
-      const { title } = this.state;
-      const { link } = this.state;
-      const { image} = this.state;
-  
+      var {connects} = this.state;
       return(
-        // Displaying the fetched data to web page
-        <div>
-          <p>{image}</p>
+        <div id="connect">
+          {connects && connects.map((connect)=>{
+            return(
+              <div key={connect.id} className="con_flex ">
+                <a href="{connect.link}"><img src={"http://127.0.0.1:8000/storage/"+connect.image }className="con_img" /></a>
+              </div>
+            ) 
+          })}
         </div>
       )
     }

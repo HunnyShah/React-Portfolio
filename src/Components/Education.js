@@ -8,11 +8,7 @@ class Education extends React.Component {
     {
       super(props);
       this.state = {
-        institutename: [],
-        location: [],
-        degree: [],
-        completedate: [],
-        info: []
+        educations:[]
       };
     }
   
@@ -25,32 +21,30 @@ class Education extends React.Component {
           // console.log(res.data[0].);
           
         this.setState({
-          institutename:res.data[0].institutename,
-          location:res.data[0].location,
-          degree: res.data[0].degree,
-          completedate: res.data[0].completedate,
-          info: res.data[0].info
+          educations:res.data,
         });
       });
     }
   
     render() {
       // Assigning state
-      const { institutename } = this.state;
-      const { location } = this.state;
-      const { degree} = this.state;
-      const {completedate} = this.state;
-      const {info} = this.state;
-  
+      var {educations} = this.state;
+
       return(
         // Displaying the fetched data to web page
-        <div>
-          <h3>{degree}</h3>
-          <h5>{institutename}</h5>
-          <h5>{location}</h5>
-          <h6>{completedate}</h6>
-          <h6>{info}</h6>
-        </div>
+        <div id="education" className="con_flex">
+          {educations && educations.map((education)=>{
+            return(
+              <div key={education.id} className="edu_flex">
+                <h2>{education.degree}</h2>
+                <h5>{education.institutename}</h5>
+                <h5>{education.location}</h5>
+                <h5>{education.completedate}</h5>
+                <p>{education.info}</p>
+              </div>
+            ) 
+          })}
+      </div>
       )
     }
   }

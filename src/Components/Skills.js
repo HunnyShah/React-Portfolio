@@ -8,8 +8,7 @@ class Skill extends React.Component {
   {
     super(props);
     this.state = {
-      image: [],
-      skill_level: []
+      skills:[]
     };
   }
 
@@ -22,22 +21,27 @@ class Skill extends React.Component {
         // console.log(res.data[0].);
         
       this.setState({
-        image:res.data[0].image,
-        skill_level:res.data[0].skill_level
+        skills:res.data,
       });
     });
   }
 
   render() {
     // Assigning state
-    const { image } = this.state;
-    const { skill_level } = this.state;
+    // const { image } = this.state;
+    // const { skill_level } = this.state;
+    var {skills} = this.state;
 
     return(
-      // Displaying the fetched data to web page
-      <div>
-        <div>{image}</div>
-        <h5>{skill_level}</h5>
+
+      <div id="skill">
+      {skills && skills.map((skill)=>{
+        return(
+          <div key={skill.id} className="skill_flex edu_flex">
+            <img src={"http://127.0.0.1:8000/storage/"+skill.image} className="skill_img"/>
+          </div>
+        ) 
+      })}
       </div>
     )
   }
